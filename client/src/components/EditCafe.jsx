@@ -42,7 +42,14 @@ const EditCafe = ({loggedUser}) => {
                 console.log(res);
                 navigate('/dashboard');
             })
-            .catch( err => console.log(err))
+            .catch( err => {
+                const errArray = [];
+                for(const key of Object.keys(err.response.data.errors)) {
+                    errArray.push(err.response.data.errors[key].message)
+                }
+                setCafeErrors(errArray);
+                console.log(err)
+            })
     }
 
     const logoutHandler = e => {
@@ -70,31 +77,36 @@ const EditCafe = ({loggedUser}) => {
                     </form>
                 </div>
             </div>
-                <h1>Edit Cafe</h1>
-            <form onSubmit={editCafeHandler}>
-                <div style={{ color: "red" }}>
-                    {
-                        cafeErrors.map( (err, idx) => {
-                            return(
-                                <p key={idx}>{err}</p>
-                            )
-                        })
-                    }
+            <div className='d-flex justify-content-evenly'>
+                <div>
+                    <h1>Edit Cafe</h1>
+                    <form onSubmit={editCafeHandler}>
+                        <div style={{ color: "red" }}>
+                            {
+                                cafeErrors.map( (err, idx) => {
+                                    return(
+                                        <p key={idx}>{err}</p>
+                                    )
+                                })
+                            }
+                        </div>
+                        <div className='mb-3'>
+                            <label className='form-label'>Name</label>
+                            <input type='text' className='form-control' value={name} onChange={e => setName(e.target.value)}/>
+                        </div>
+                        <div className='mb-3'>
+                            <label className='form-label'>Location</label>
+                            <input type='text' className='form-control' value={location} onChange={e => setLocation(e.target.value)}/>
+                        </div>
+                        <div className='mb-'>
+                            <label className='form-label'>Roaster?</label>
+                            <input type='checkbox' checked={isRoaster} onChange={e => setIsRoaster(e.target.checked)}/>
+                        </div>
+                        <button className='btn btn-primary btn-lg'>Edit Cafe</button>
+                    </form>
                 </div>
-                <div className='mb-3'>
-                    <label className='form-label'>Name</label>
-                    <input type='text' className='form-control' value={name} onChange={e => setName(e.target.value)}/>
-                </div>
-                <div className='mb-3'>
-                    <label className='form-label'>Location</label>
-                    <input type='text' className='form-control' value={location} onChange={e => setLocation(e.target.value)}/>
-                </div>
-                <div className='mb-'>
-                    <label className='form-label'>Roaster?</label>
-                    <input type='checkbox' checked={isRoaster} onChange={e => setIsRoaster(e.target.checked)}/>
-                </div>
-                <button className='btn btn-secondary btn-lg'>Edit Cafe</button>
-            </form>
+                <img src='https://images.pexels.com/photos/374147/pexels-photo-374147.jpeg?auto=compress&cs=tinysrgb&w=1600' className='border rounded' style={{ width: "500px" }} />
+            </div>
             </> }
         </div>
     );

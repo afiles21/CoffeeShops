@@ -80,13 +80,16 @@ const Dashboard = ({loggedUser, setLoggedUser}) => {
                         }
                     </tbody>
                 </table>
-                <div className="card" style={{ width: "18rem" }}>
-                    <img src="https://images.pexels.com/photos/585753/pexels-photo-585753.jpeg?auto=compress&cs=tinysrgb&w=1600" class="card-img-top" alt="..."/>
-                    <div className="card-body">
-                        <h5 className="card-title">Log a Cafe</h5>
-                        <p className="card-text">Can't find the coffee shop you are looking for? Feel free to add your own!</p>
-                        <Link to={'/coffee/new'} className="btn btn-secondary btn-lg mt-4">Add a Cafe</Link>
+                <div className='d-flex justify-content-between'>
+                    <div className="card" style={{ width: "18rem" }}>
+                        <img src="https://images.pexels.com/photos/585753/pexels-photo-585753.jpeg?auto=compress&cs=tinysrgb&w=1600" className="card-img-top" alt="..."/>
+                        <div className="card-body">
+                            <h5 className="card-title">Log a Cafe</h5>
+                            <p className="card-text">Can't find the coffee shop you are looking for? Feel free to add your own!</p>
+                            <Link to={'/coffee/new'} className="btn btn-secondary btn-lg mt-4">Add a Cafe</Link>
+                        </div>
                     </div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d24900.298338780864!2d-121.1826176!3d38.72843105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1696881409147!5m2!1sen!2sus" style={{width: "600px", height: "450px"}} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </>}
         </div>

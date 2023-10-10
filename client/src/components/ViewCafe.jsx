@@ -42,12 +42,14 @@ const ViewCafe = ({loggedUser}) => {
                     </form>
                 </div>
             </div>
-            <div>
+            <div className='coffee-backgroud text-center pt-5' style={{ height: "500px"}}>
                 <h1>Shop Details</h1>
+                <div className='mt-5 pt-5'>
+                    <h3>Name: {thisCafe.name}</h3>
+                    <h3>Location: {thisCafe.location}</h3>
+                    <h3>Do you even roast: {thisCafe.isRoaster ? "Yes" : "No"}</h3>
+                </div>
             </div>
-            <h3>Name: {thisCafe.name}</h3>
-            <h3>Location: {thisCafe.location}</h3>
-            <h3>Do you even roast: {thisCafe.isRoaster ? "Yes" : "No"}</h3>
             </> }
         </div>
     );
